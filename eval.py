@@ -19,6 +19,7 @@ def eval_single(vector):
 
 
 def sentence2vector(sentence, max_length=10):
+    """将输入表达式转为向量"""
     vector = [0] * max_length
     for i, char in enumerate(sentence[:10]):
         if char in char2idx:

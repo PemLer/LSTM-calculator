@@ -5,17 +5,26 @@ import yaml
 from keras.models import Sequential
 from keras.layers import Embedding, LSTM, Dropout, Dense, Activation
 
+# 词表大小
 vocab_dim = 15
+# embeding的维度
 embeding_dim = 100
+# 输入序列的长度
 input_length = 10
+# batch大小
 batch_size = 128
+# 训练的epoch
 n_epoch = 200
+# LSTM隐层大小
 hidden_num = 100
+# 分类的类别数
 classes = 11
+# dropout比例
 dropout = 0.5
 
 
 def build_model():
+    """搭模型"""
     model = Sequential()
     model.add(Embedding(input_dim=vocab_dim, output_dim=embeding_dim, mask_zero=True, input_length=input_length))
     model.add(LSTM(hidden_num))
@@ -26,6 +35,7 @@ def build_model():
 
 
 def train_and_test(x_train, y_train, x_test, y_test):
+    """训练和测试"""
     model = build_model()
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.summary()
@@ -42,6 +52,7 @@ def train_and_test(x_train, y_train, x_test, y_test):
 
 
 def process_data(split_ratio=0.1, max_length=10):
+    """准备用于训练的数据"""
     path = './resource/data.txt'
     with open(path, 'r') as f:
         lines = f.readlines()
@@ -92,8 +103,3 @@ def process_data(split_ratio=0.1, max_length=10):
 if __name__ == '__main__':
     x_train, y_train, x_test, y_test = process_data()
     train_and_test(x_train, y_train, x_test, y_test)
-
-
-
-
-

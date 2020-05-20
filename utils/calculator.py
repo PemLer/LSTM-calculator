@@ -5,6 +5,7 @@
 
 
 def calculate(expression):
+    """用两个栈实现表达式的计算"""
     nums = []
     ops = []
 

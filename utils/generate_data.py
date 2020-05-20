@@ -7,11 +7,6 @@ import random
 from utils.calculator import calculate
 
 
-def char_generator() -> str:
-    chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', ' ', '(', ')'] + ['(', ')']
-    return random.choice(chars)
-
-
 def generate_expression_v2():
     """
     10000
