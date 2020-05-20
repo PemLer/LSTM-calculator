@@ -1,8 +1,9 @@
-from utils.generate_data import generate_expression_v2
-from utils.calculator import calculate
-from keras.models import load_model
 import pickle
 import numpy as np
+from keras.models import load_model
+
+from utils.generate_data import generate_expression_v2
+from utils.calculator import calculate
 
 
 model_path = './model/lstm.h5'

@@ -1,7 +1,7 @@
 import random
 import pickle
-import numpy as np
 import yaml
+import numpy as np
 from keras.models import Sequential
 from keras.layers import Embedding, LSTM, Dropout, Dense, Activation
 
